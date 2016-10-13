@@ -10,7 +10,7 @@ I add here ability to update connected clients when server state changes. I.e. w
 
 Assuming you use Emacs+cider, and you configured your cider to start figwheel repl like this:
 
-```
+```lisp
 (setq cider-cljs-lein-repl "(do (use 'figwheel-sidecar.repl-api) (start-figwheel!) (cljs-repl))")
 ```
 You can open the `project.clj` in emacs and hit `Ctrl-c Alt-Shift-j` to start both clojure and clojurescript REPLs. Then, in the clojure REPL, write `(reset)`, it will start the backend on 8080.
@@ -19,7 +19,7 @@ Then navigate to http://localhost:8080, you should see the page with 'Increment'
 
 Now, run following in terminal:
 
-```
+```bash
 echo '[(ui/increment {:value 20})]' | transito http post http://localhost:8080/api/1/query e2t -
 ```
 
